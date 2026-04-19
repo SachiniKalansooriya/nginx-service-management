@@ -1,0 +1,12 @@
+* * * * * echo "Cron is working! $(date)" >> /home/sachini/logs/cron-test.log
+# System health report - every hour
+0 * * * * /home/sachini/bash-scripting-advanced/scripts/system-health-report.sh >> /home/sachini/logs/cron-health.log 2>&1
+
+#Backup - everyday at 2 am
+0 2 * * * /home/sachini/bash-backup-automation/scripts/backup.sh >> /home/sachini/logs/cron-backup.log 2>&1
+
+#Server monitor - every 15 minite
+*/15 * * * * /home/sachini/server-monitoring-scripts/scripts/server-monitor.sh >> /home/sachini/logs/cron-monitor.log 2>&1
+
+#nginx health check - every 5 minite
+*/5 * * * * /home/sachini/nginx-service-management/scripts/nginx-health-check.sh >> /home/sachini/logs/cron-nginx.log 2>&1
